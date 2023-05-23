@@ -1,6 +1,6 @@
 import IStudentRepository from "../../domain/repositories/IStudentRepository";
-import Student from "../../domain/entities/Student";
 import { PrismaClient } from "@prisma/client";
+import Student from "../../domain/entities/Student";
 
 export default class PrismaStudentRepository implements IStudentRepository {
     protected prisma: PrismaClient;
@@ -19,5 +19,9 @@ export default class PrismaStudentRepository implements IStudentRepository {
         await this.prisma.student.create({
             data: student,
         })
+    }
+
+    async list(): Promise<Student[]> {
+        return await this.prisma.student.findMany();
     }
 }
