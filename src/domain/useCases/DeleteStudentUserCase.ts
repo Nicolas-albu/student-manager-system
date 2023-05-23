@@ -1,4 +1,4 @@
-import IStudentRepository from "../../repositories/IStudentRepository";
+import IStudentRepository from "../repositories/IStudentRepository";
 
 export default class DeleteStudentUserCase {
     constructor(

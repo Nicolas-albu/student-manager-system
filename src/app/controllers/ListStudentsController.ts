@@ -1,4 +1,4 @@
-import ListStudentsUserCase from "../../domain/useCases/listStudents/ListStudentsUserCase";
+import ListStudentsUserCase from "../../domain/useCases/ListStudentsUserCase";
 import Student from "../../domain/entities/Student";
 import { Request, Response } from 'express'
 

@@ -1,4 +1,4 @@
-import IStudentRepository from "../../repositories/IStudentRepository";
+import IStudentRepository from "../repositories/IStudentRepository";
 import { Student } from "@prisma/client";
 
 export default class ListStudentsUserCase {

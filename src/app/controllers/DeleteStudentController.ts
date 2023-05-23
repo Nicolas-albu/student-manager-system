@@ -1,4 +1,4 @@
-import DeleteStudentUserCase from "../../domain/useCases/DeleteStudent/DeleteStudentUserCase";
+import DeleteStudentUserCase from "../../domain/useCases/DeleteStudentUserCase";
 import { Request, Response } from "express";
 
 export default class DeleteStudentController {

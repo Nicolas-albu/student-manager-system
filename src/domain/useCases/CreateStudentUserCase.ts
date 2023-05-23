@@ -1,6 +1,6 @@
-import IStudentRepository from "../../repositories/IStudentRepository";
-import ICreateStudentDTO from "../../../app/dtos/ICreateStudentDTO";
-import Student from "../../entities/Student";
+import IStudentRepository from "../repositories/IStudentRepository";
+import ICreateStudentDTO from "../../app/dtos/ICreateStudentDTO";
+import Student from "../entities/Student";
 
 export default class CreateStudentUserCase {
     constructor(
