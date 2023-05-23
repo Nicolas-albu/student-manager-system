@@ -1,4 +1,4 @@
-export type Registration = number | null
+export type Registration = number | null;
 
 export default class Student {
     public readonly registration: Registration;

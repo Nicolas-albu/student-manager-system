@@ -11,16 +11,18 @@
 
 ## **Requisitos Não-Funcionais**
 
-|     Atividade     | Descrição |
-| :---------------: | :-------: |
-|    Arquitetura    |    MVC    |
-| Framework Backend |  Express  |
-|  Template Engine  |    EJS    |
+|     Atividade     |     Descrição      |
+| :---------------: | :----------------: |
+|    Arquitetura    | Clean Architecture |
+| Framework Backend |      Express       |
+|  Template Engine  |        EJS         |
 
 ## **Alguns comandos pro desenvolvimento**
 
+```bash
 npx prisma migrate dev --schema ./src/infra/prisma/schema.prisma
 npx prisma generate --schema ./src/infra/prisma/schema.prisma
+```
 
 ## **Tasks**
 
