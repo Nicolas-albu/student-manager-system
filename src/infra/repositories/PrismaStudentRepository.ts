@@ -9,6 +9,12 @@ export default class PrismaStudentRepository implements IStudentRepository {
         this.prisma = new PrismaClient();
     }
 
+    async findByRegistration(registration: number): Promise<Student> {
+        return await this.prisma.student.findUnique({
+            where: { registration }
+        });
+    }
+
     async findByEmail(email: string): Promise<Student> {
         return await this.prisma.student.findUnique({
             where: { email },
@@ -18,6 +24,12 @@ export default class PrismaStudentRepository implements IStudentRepository {
     async create(student: Student): Promise<void> {
         await this.prisma.student.create({
             data: student,
+        })
+    }
+
+    async delete(registration: number): Promise<void> {
+        await this.prisma.student.delete({
+            where: { registration },
         })
     }
 

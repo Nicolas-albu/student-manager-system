@@ -7,7 +7,7 @@ export default class CreateStudentUserCase {
         private studentRepository: IStudentRepository
     ) { }
 
-    async execute(data: ICreateStudentDTO) {
+    async execute(data: ICreateStudentDTO): Promise<void> {
         const studentAlreadyExists = await this.studentRepository.findByEmail(
             data.email
         );
