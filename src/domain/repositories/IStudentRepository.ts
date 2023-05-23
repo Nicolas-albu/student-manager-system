@@ -5,5 +5,6 @@ export default interface IStudentRepository {
     findByEmail(email: string): Promise<Student>;
     create(student: Student): Promise<void>;
     delete(registration: number): Promise<void>;
+    update(student: Student): Promise<void>;
     list(): Promise<Student[]>;
 }

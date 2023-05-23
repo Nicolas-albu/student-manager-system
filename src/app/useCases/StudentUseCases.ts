@@ -8,9 +8,11 @@ import DeleteStudentController from "../controllers/DeleteStudentController";
 import ListStudentsController from "../controllers/ListStudentsController";
 
 import repositoryFactory from "../../infra/repositories/RepositoryFactory";
+import UpdateStudentUseCase from "../../domain/useCases/UpdateStudentUseCase";
+import UpdateStudentController from "../controllers/UpdateStudentController";
 
 
-abstract class AbstractStudentUserCases {
+abstract class AbstractStudentUseCases {
     private studentRepository: IStudentRepository;
 
     constructor() {
@@ -28,10 +30,14 @@ abstract class AbstractStudentUserCases {
     protected get createStudent() {
         return new CreateStudentUseCase(this.studentRepository);
     }
+
+    protected get updateStudent() {
+        return new UpdateStudentUseCase(this.studentRepository);
+    }
 }
 
 
-export default class StudentUseCases extends AbstractStudentUserCases {
+export default class StudentUseCases extends AbstractStudentUseCases {
     constructor() {
         super();
     }
@@ -46,5 +52,9 @@ export default class StudentUseCases extends AbstractStudentUserCases {
 
     public get listStudentController() {
         return new ListStudentsController(super.listStudent);
+    }
+
+    public get updateStudentController() {
+        return new UpdateStudentController(super.updateStudent);
     }
 }

@@ -6,9 +6,9 @@ export default class DeleteStudentUserCase {
     ) { }
 
     async execute(registration: number): Promise<void> {
-        const student = await this.studentRepository.findByRegistration(registration);
+        const studentAlreadyExists = await this.studentRepository.findByRegistration(registration);
 
-        if (!student) {
+        if (!studentAlreadyExists) {
             throw new Error('Estudante não encontrado.');
         }
 

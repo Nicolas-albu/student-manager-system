@@ -33,6 +33,13 @@ export default class PrismaStudentRepository implements IStudentRepository {
         })
     }
 
+    async update(student: Student): Promise<void> {
+        await this.prisma.student.update({
+            where: { registration: student.registration },
+            data: student,
+        })
+    }
+
     async list(): Promise<Student[]> {
         return await this.prisma.student.findMany();
     }

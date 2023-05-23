@@ -10,18 +10,14 @@ export default class CreateStudentController {
     async handle(req: Request, res: Response): Promise<Response> {
         const { registration, name, dateOfBirth, status, email }: Student = req.body;
 
-        const newStudent = {
-            registration,
-            name,
-            dateOfBirth: new Date(dateOfBirth),
-            email,
-            status,
-        };
-
-        console.log(newStudent);
-
         try {
-            await this.createStudentUseCase.execute(newStudent);
+            await this.createStudentUseCase.execute({
+                registration,
+                name,
+                dateOfBirth: new Date(dateOfBirth),
+                email,
+                status,
+            });
 
             return res.status(201).send({
                 message: "Estudante criado com sucesso."
