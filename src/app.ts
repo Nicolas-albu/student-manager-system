@@ -1,15 +1,12 @@
-import primaryPagesRoutes from './routes/primaryPagesRoutes'
-import expressLayouts from 'express-ejs-layouts'
-import express, { Application } from 'express'
-import bodyParser from 'body-parser'
+import useCasesRouter from "./app/routes/useCasesRouter";
+import viewRouter from "./app/routes/viewRouter";
+import express from "express";
 
-const app: Application = express()
+const app = express()
 
-app.use(bodyParser.urlencoded())
-app.use(primaryPagesRoutes)
-app.use(expressLayouts)
+app.use(express.json())
+app.use(useCasesRouter)
+app.use(viewRouter)
 
-app.set('view engine', 'ejs')
-app.set('views', './views')
 
 export default app
