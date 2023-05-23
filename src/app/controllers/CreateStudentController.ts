@@ -1,4 +1,4 @@
-import CreateStudentUserCase from '../../domain/useCases/CreateStudentUserCase';
+import CreateStudentUserCase from '../../domain/useCases/CreateStudentUseCase';
 import Student from '../../domain/entities/Student';
 import { Request, Response } from 'express'
 
@@ -22,14 +22,14 @@ export default class CreateStudentController {
 
         try {
             await this.createStudentUseCase.execute(newStudent);
+
+            return res.status(201).send({
+                message: "Estudante criado com sucesso."
+            });
         } catch (err) {
-            res.status(400).json({
+            return res.status(400).json({
                 message: err.message || "Ocorreu um erro na criação do estudante.",
             });
         }
-
-        return res.status(201).send({
-            message: "Estudante criado com sucesso."
-        });
     }
 }

@@ -1,7 +1,7 @@
 import IStudentRepository from "../repositories/IStudentRepository";
 import { Student } from "@prisma/client";
 
-export default class ListStudentsUserCase {
+export default class ListStudentsUseCase {
     constructor(
         private studentRepository: IStudentRepository,
     ) { }

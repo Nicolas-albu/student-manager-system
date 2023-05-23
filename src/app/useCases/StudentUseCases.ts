@@ -1,6 +1,6 @@
-import DeleteStudentUserCase from "../../domain/useCases/DeleteStudentUserCase";
-import CreateStudentUserCase from "../../domain/useCases/CreateStudentUserCase";
-import ListStudentsUserCase from "../../domain/useCases/ListStudentsUserCase";
+import DeleteStudentUseCase from "../../domain/useCases/DeleteStudentUseCase";
+import CreateStudentUseCase from "../../domain/useCases/CreateStudentUseCase";
+import ListStudentsUseCase from "../../domain/useCases/ListStudentsUseCase";
 import IStudentRepository from "../../domain/repositories/IStudentRepository";
 
 import CreateStudentController from "../controllers/CreateStudentController";
@@ -18,15 +18,15 @@ abstract class AbstractStudentUserCases {
     }
 
     protected get listStudent() {
-        return new ListStudentsUserCase(this.studentRepository);
+        return new ListStudentsUseCase(this.studentRepository);
     }
 
     protected get deleteStudent() {
-        return new DeleteStudentUserCase(this.studentRepository);
+        return new DeleteStudentUseCase(this.studentRepository);
     }
 
     protected get createStudent() {
-        return new CreateStudentUserCase(this.studentRepository);
+        return new CreateStudentUseCase(this.studentRepository);
     }
 }
 

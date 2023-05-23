@@ -1,4 +1,4 @@
-import ListStudentsUserCase from "../../domain/useCases/ListStudentsUserCase";
+import ListStudentsUserCase from "../../domain/useCases/ListStudentsUseCase";
 import Student from "../../domain/entities/Student";
 import { Request, Response } from 'express'
 
@@ -12,14 +12,14 @@ export default class CreateStudentController {
 
         try {
             students = await this.listStudentsUseCase.execute()
+
+            return res.status(200).send(students || {
+                message: "Listagem dos estudantes com sucesso."
+            });
         } catch (err) {
-            res.status(404).json({
+            return res.status(404).json({
                 message: err.message || "Ocorreu um erro na listagem de estudantes.",
             });
         }
-
-        return res.status(200).send(students || {
-            message: "Listagem dos estudantes com sucesso."
-        });
     }
 }
