@@ -16,12 +16,21 @@
                 <th>AÇÃO</th>
             </tr>
             <% for (let student of students) { %>
+                <tr>
+                    <td><%= student.name %></td>
+                    <td><%= student.birthDate %></td>
+                    <td><%= student.registration %></td>
+                    <td><%= student.status %></td>
+                    <td><%= student.email %></td>
+                    <td>
+                        <div id="buttons">
+                            <button id="delete" value="<%= student.id %>">Deletar aluno</button>
+                            <button id="update" value="<%= student.id %>">Alterar aluno</button>
+                        </div>
+                    </td>
+                </tr>
             <% } %>
         </table>
-
-        <div id="buttons">
-            <button id="delete">Deletar aluno</button>
-            <button id="update">Alterar aluno</button>
-        </div>
+      
     </form>
 </div>
