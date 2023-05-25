@@ -4,9 +4,9 @@ import { Router } from "express";
 const useCasesRouter = Router()
 const studentUserCases = new StudentUseCases();
 
-useCasesRouter.get('/student', (req, res) => {
-    return studentUserCases.listStudentController.handle(req, res);
-})
+// useCasesRouter.get('/student', (req, res) => {
+//     return studentUserCases.listStudentController.handle(req, res);
+// })
 
 useCasesRouter.post('/student', (req, res) => {
     return studentUserCases.createStudentController.handle(req, res);

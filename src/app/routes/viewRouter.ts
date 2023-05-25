@@ -13,4 +13,12 @@ viewRouter.get('/', async (req, res) => {
 
 })
 
+viewRouter.get('/createStudent', async (req, res) => {
+    return res.status(200).render('pages/createStudentView')
+
+    // res.status(200).render('pages/listStudentView')
+
+})
+
+
 export default viewRouter

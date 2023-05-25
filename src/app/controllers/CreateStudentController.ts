@@ -8,6 +8,8 @@ export default class CreateStudentController {
     ) { }
 
     async handle(req: Request, res: Response): Promise<Response> {
+        console.log(req.body)
+
         const { registration, name, dateOfBirth, status, email }: Student = req.body;
 
         try {

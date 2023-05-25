@@ -3,7 +3,6 @@ import viewRouter from "./app/routes/viewRouter";
 import expressLayouts from "express-ejs-layouts";
 import bodyParser from "body-parser";
 import express from "express";
-import path from "path"
 
 const app = express()
 // __dirname = path.resolve()
