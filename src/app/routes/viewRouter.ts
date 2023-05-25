@@ -4,10 +4,12 @@ import { Router } from "express";
 const viewRouter = Router()
 const studentUserCases = new StudentUseCases();
 
-viewRouter.get('/', (req, res) => {
-    const students = studentUserCases.listStudentController.handle(req, res);
-    console.log(students)
-    res.status(200).render('pages/createStudentView', { students })
+viewRouter.get('/', async (req, res) => {
+    const students = await studentUserCases.listStudentController.handle(req, res)
+
+    return res.status(200).render('pages/listStudentView', { students })
+
+    // res.status(200).render('pages/listStudentView')
 
 })
 

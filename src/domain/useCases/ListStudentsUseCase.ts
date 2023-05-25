@@ -1,5 +1,6 @@
+import Student from "../entities/Student";
 import IStudentRepository from "../repositories/IStudentRepository";
-import { Student } from "@prisma/client";
+// import { Student } from "@prisma/client";
 
 export default class ListStudentsUserCase {
     constructor(

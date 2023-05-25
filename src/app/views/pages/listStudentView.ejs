@@ -1,0 +1,27 @@
+<%- contentFor('body') %>
+<div>
+    <h1 align="center">Sistema de Gerenciamento de Alunos</h1>
+</div>
+<div>
+    <form action="">
+        <button id="submit">Cadastrar novo aluno</button>
+
+        <table align="center">
+            <tr>
+                <th>NOME DO ALUNO</th>
+                <th>DATA DE NASCIMENTO</th>
+                <th>MATRÍCULA DO ALUNO</th>
+                <th>STATUS DO ALUNO</th>
+                <th>E-MAIL DO ALUNO</th>
+                <th>AÇÃO</th>
+            </tr>
+            <% for (let student of students) { %>
+            <% } %>
+        </table>
+
+        <div id="buttons">
+            <button id="delete">Deletar aluno</button>
+            <button id="update">Alterar aluno</button>
+        </div>
+    </form>
+</div>
