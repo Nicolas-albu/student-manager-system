@@ -10,6 +10,8 @@ import ListStudentsController from "../controllers/ListStudentsController";
 import repositoryFactory from "../../infra/repositories/RepositoryFactory";
 import UpdateStudentUseCase from "../../domain/useCases/UpdateStudentUseCase";
 import UpdateStudentController from "../controllers/UpdateStudentController";
+import GetStudentsUserCase from "../../domain/useCases/GetStudentUseCase";
+import GetStudentController from "../controllers/GetStudentController";
 
 
 abstract class AbstractStudentUseCases {
@@ -34,6 +36,10 @@ abstract class AbstractStudentUseCases {
     protected get updateStudent() {
         return new UpdateStudentUseCase(this.studentRepository);
     }
+
+    protected get getStudent() {
+        return new GetStudentsUserCase(this.studentRepository);
+    }
 }
 
 
@@ -56,5 +62,9 @@ export default class StudentUseCases extends AbstractStudentUseCases {
 
     public get updateStudentController() {
         return new UpdateStudentController(super.updateStudent);
+    }
+
+    public get getStudentController() {
+        return new GetStudentController(super.getStudent);
     }
 }

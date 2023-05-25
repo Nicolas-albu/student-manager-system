@@ -12,11 +12,11 @@ useCasesRouter.post('/student', (req, res) => {
     return studentUserCases.createStudentController.handle(req, res);
 })
 
-useCasesRouter.put('/student', (req, res) => {
+useCasesRouter.put('/update', (req, res) => {
     return studentUserCases.updateStudentController.handle(req, res);
 })
 
-useCasesRouter.delete('/student', (req, res) => {
+useCasesRouter.delete('/delete/:registration', (req, res) => {
     return studentUserCases.deleteStudentController.handle(req, res);
 })
 

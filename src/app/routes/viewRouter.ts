@@ -20,5 +20,12 @@ viewRouter.get('/createStudent', async (req, res) => {
 
 })
 
+viewRouter.get('/updateStudent/:registration', async (req, res) => {
+    const student = await studentUserCases.getStudentController.handle(req, res);
+    // console.log(student);
+
+    return res.status(200).render('pages/updateStudentView', { student })
+})
+
 
 export default viewRouter

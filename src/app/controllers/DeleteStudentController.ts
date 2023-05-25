@@ -7,10 +7,10 @@ export default class DeleteStudentController {
     ) { }
 
     async handle(req: Request, res: Response): Promise<Response> {
-        const { registration } = req.body;
+        const { registration } = req.params;
 
         try {
-            this.deleteStudentUserCase.execute(registration);
+            this.deleteStudentUserCase.execute(Number(registration));
 
             return res.status(200).send({
                 message: `Remoção do estudante ${registration} com sucesso.`,

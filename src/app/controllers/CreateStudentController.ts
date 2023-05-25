@@ -21,9 +21,7 @@ export default class CreateStudentController {
                 status,
             });
 
-            return res.status(201).send({
-                message: "Estudante criado com sucesso."
-            });
+            res.status(201).redirect('/')
         } catch (err) {
             return res.status(400).json({
                 message: err.message || "Ocorreu um erro na criação do estudante.",

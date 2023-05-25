@@ -4,7 +4,7 @@
 </div>
 <div>
     <form action="">
-        <button id="submit">Cadastrar novo aluno</button>
+        <button id="submit"><a href="/createStudent">Cadastrar novo aluno</a></button>
 
         <table align="center">
             <tr>
@@ -24,8 +24,8 @@
                     <td><%= student.email %></td>
                     <td>
                         <div id="buttons">
-                            <button id="delete" value="<%= student.id %>">Deletar aluno</button>
-                            <button id="update" value="<%= student.id %>">Alterar aluno</button>
+                            <button id="delete"><a href="/delete/<%= student.registration %>/?_method=delete">Deletar aluno</a></button>
+                            <button id="update"><a href="/updateStudent/<%= student.registration %>">Alterar aluno</a></button>
                         </div>
                     </td>
                 </tr>
