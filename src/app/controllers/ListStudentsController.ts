@@ -7,15 +7,17 @@ export default class CreateStudentController {
         private listStudentsUseCase: ListStudentsUserCase,
     ) { }
 
-    async handle(req: Request, res: Response): Promise<Response> {
+    async handle(req: Request, res: Response): Promise<Student[] | Response> {
         let students: Student[]
 
         try {
             students = await this.listStudentsUseCase.execute()
 
-            return res.status(200).send(students || {
-                message: "Listagem dos estudantes com sucesso."
-            });
+            return students;
+
+            // return res.status(200).send(students || {
+            //     message: "Listagem dos estudantes com sucesso."
+            // });
         } catch (err) {
             return res.status(404).json({
                 message: err.message || "Ocorreu um erro na listagem de estudantes.",
