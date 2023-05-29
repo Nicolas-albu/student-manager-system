@@ -11,11 +11,18 @@
 
 ## **Requisitos Não-Funcionais**
 
-|     Atividade     | Descrição |
-| :---------------: | :-------: |
-|    Arquitetura    |    MVC    |
-| Framework Backend |  Express  |
-|  Template Engine  |    EJS    |
+|     Atividade     |     Descrição      |
+| :---------------: | :----------------: |
+|    Arquitetura    | Clean Architecture |
+| Framework Backend |      Express       |
+|  Template Engine  |        EJS         |
+
+## **Alguns comandos pro desenvolvimento**
+
+```bash
+npx prisma migrate dev --schema ./src/infra/prisma/schema.prisma
+npx prisma generate --schema ./src/infra/prisma/schema.prisma
+```
 
 ## **Tasks**
 
@@ -24,24 +31,24 @@ Os campos necessários: Nome, Data De Nascimento, Matrícula, Status, E-mail
 
 Tela 1:
 
--   [ ] READ: Listagem de todos os alunos. Similar a uma tabela onde cada linha representa um aluno.
-        No final desta linha deve ter 2 botões, para alterar e excluir o aluno.
+- [ ] READ: Listagem de todos os alunos. Similar a uma tabela onde cada linha representa um aluno.
+      No final desta linha deve ter 2 botões, para alterar e excluir o aluno.
 
--   [ ] DELETE: Ao clicar no botão excluir, o aluno é excluído e a linha deve ser removida da visualização.
+- [ ] DELETE: Ao clicar no botão excluir, o aluno é excluído e a linha deve ser removida da visualização.
 
--   [ ] UPDATE: Ao clicar em alterar deve abrir a Tela 2 preenchida com os dados dos alunos.
+- [ ] UPDATE: Ao clicar em alterar deve abrir a Tela 2 preenchida com os dados dos alunos.
 
--   [ ] CREATE: Em cima, no canto superior direito, deve ter um botão para Cadastrar Novo Aluno que deve abrir a Tela 2 com os campos não preenchidos.
+- [ ] CREATE: Em cima, no canto superior direito, deve ter um botão para Cadastrar Novo Aluno que deve abrir a Tela 2 com os campos não preenchidos.
 
 Tela 2: Cadastro e Alteração de Aluno
 
--   [ ] Um formulário com os campos de aluno para serem preenchidos ou alterados.
--   [ ] O formulário deve ter dois botões, Salvar e Cancelar.
--   [ ] Ao clicar em Salvar um novo aluno deve ser inserido ou atualizado, e
--   [ ] depois o sistema deve ir para a Tela 1.
--   [ ] Ao clicar em Cancelar o sistema deve ir para Tela 1, mas sem salvar o aluno.
+- [ ] Um formulário com os campos de aluno para serem preenchidos ou alterados.
+- [ ] O formulário deve ter dois botões, Salvar e Cancelar.
+- [ ] Ao clicar em Salvar um novo aluno deve ser inserido ou atualizado, e
+- [ ] depois o sistema deve ir para a Tela 1.
+- [ ] Ao clicar em Cancelar o sistema deve ir para Tela 1, mas sem salvar o aluno.
 
 ## Referências
 
--   [Rocketseat](https://www.youtube.com/watch?v=mxiRCcnsKDw)
--   [Rocketseat](https://www.youtube.com/watch?v=0mYq5LrQN1s)
+- [Rocketseat](https://www.youtube.com/watch?v=mxiRCcnsKDw)
+- [Rocketseat](https://www.youtube.com/watch?v=0mYq5LrQN1s)

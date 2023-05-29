@@ -1,0 +1,25 @@
+/* Arquivo static/style.css */
+
+/* Estilo dos botões Deletar e Alterar */
+#delete,
+#update {
+  display: block;
+  margin: 0 auto;
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+/* Estilo do botão Deletar (vermelho) */
+#delete {
+  background-color: red;
+  color: white;
+}
+
+/* Estilo do botão Alterar (amarelo) */
+#update {
+  background-color: yellow;
+  color: black;
+}
