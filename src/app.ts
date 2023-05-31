@@ -20,4 +20,6 @@ app.use(viewRouter)
 app.set('view engine', 'ejs')
 app.set('views', './src/app/views')
 
+export const timeZone = 'America/Sao_Paulo';
+
 export default app
