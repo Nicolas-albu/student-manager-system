@@ -1,13 +1,13 @@
+import GetStudentsUserCase from "../../domain/useCases/GetStudentUseCase";
 import Student from "../../domain/entities/Student";
 import { Request, Response } from 'express'
-import GetStudentsUserCase from "../../domain/useCases/GetStudentUseCase";
 
 export default class GetStudentController {
     constructor(
         private getStudentsUseCase: GetStudentsUserCase,
     ) { }
 
-    async handle(req: Request, res: Response): Promise<Student> {
+    async handle(req: Request, res: Response): Promise<Student | void> {
         const { registration } = req.params;
         let students: Student
 
@@ -16,9 +16,9 @@ export default class GetStudentController {
 
             return students
         } catch (err) {
-            // return res.status(404).json({
-            //     message: err.message || "Ocorreu um erro na listagem de estudantes.",
-            // });
+            const errorMessage = err.message || `Ocorreu um erro na listagem do estudante de matrícula ${registration}`
+
+            return res.status(400).redirect(`error/${errorMessage}`)
         }
     }
 }

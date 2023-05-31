@@ -4,15 +4,11 @@ import { Router } from "express";
 const useCasesRouter = Router()
 const studentUserCases = new StudentUseCases();
 
-// useCasesRouter.get('/student', (req, res) => {
-//     return studentUserCases.listStudentController.handle(req, res);
-// })
-
-useCasesRouter.post('/student', (req, res) => {
+useCasesRouter.post('/create', (req, res) => {
     return studentUserCases.createStudentController.handle(req, res);
 })
 
-useCasesRouter.put('/update', (req, res) => {
+useCasesRouter.put('/update/:registration', (req, res) => {
     return studentUserCases.updateStudentController.handle(req, res);
 })
 

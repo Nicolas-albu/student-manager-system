@@ -1,10 +1,15 @@
 <%- contentFor('body') %>
+<%- include('../public/styleList') %>
 <div>
     <h1 align="center">Sistema de Gerenciamento de Alunos</h1>
 </div>
 <div>
     <form action="">
-        <button id="submit"><a href="/createStudent">Cadastrar novo aluno</a></button>
+        <button id="submit">
+            <a href="/createStudent">
+                Cadastrar aluno
+            </a>
+        </button>
 
         <table align="center">
             <tr>
@@ -18,14 +23,22 @@
             <% for (let student of students) { %>
                 <tr>
                     <td><%= student.name %></td>
-                    <td><%= student.birthDate %></td>
+                    <td><%= student.dateOfBirth %></td>
                     <td><%= student.registration %></td>
                     <td><%= student.status %></td>
                     <td><%= student.email %></td>
                     <td>
                         <div id="buttons">
-                            <button id="delete"><a href="/delete/<%= student.registration %>/?_method=delete">Deletar aluno</a></button>
-                            <button id="update"><a href="/updateStudent/<%= student.registration %>">Alterar aluno</a></button>
+                            <button id="delete">
+                                <a href="/delete/<%= student.registration %>/?_method=DELETE">
+                                    Deletar cadastro
+                                </a>
+                            </button>
+                            <button id="update">
+                                <a id="a-btn-update" href="/updateStudent/<%= student.registration %>">
+                                    Alterar cadastro
+                                </a>
+                            </button>
                         </div>
                     </td>
                 </tr>

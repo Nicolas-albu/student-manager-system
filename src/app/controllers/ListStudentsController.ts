@@ -1,27 +1,33 @@
 import ListStudentsUserCase from "../../domain/useCases/ListStudentsUseCase";
 import Student from "../../domain/entities/Student";
 import { Request, Response } from 'express'
+import format from "date-fns/format";
 
 export default class CreateStudentController {
     constructor(
         private listStudentsUseCase: ListStudentsUserCase,
     ) { }
 
-    async handle(req: Request, res: Response): Promise<Student[]> {
+    async handle(req: Request, res: Response): Promise<Student[] | void> {
         let students: Student[]
 
         try {
             students = await this.listStudentsUseCase.execute()
 
-            return students
+            const dateOfStudentsFormatted = students.map((student) => ({
+                ...student,
+                dateOfBirth: format(new Date(student.dateOfBirth), 'dd/MM/yyyy'),
+            }));
 
-            // return res.status(200).send(students || {
-            //     message: "Listagem dos estudantes com sucesso."
-            // });
+            // yyyy-MM-dd
+
+            console.log(dateOfStudentsFormatted)
+
+            return dateOfStudentsFormatted
         } catch (err) {
-            // return res.status(404).json({
-            //     message: err.message || "Ocorreu um erro na listagem de estudantes.",
-            // });
+            const errorMessage = err.message || 'Ocorreu um erro na listagem dos estudantes'
+
+            return res.status(400).redirect(`error/${errorMessage}`)
         }
     }
 }

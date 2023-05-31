@@ -1,6 +1,5 @@
-import Student from "../entities/Student";
 import IStudentRepository from "../repositories/IStudentRepository";
-// import { Student } from "@prisma/client";
+import Student from "../entities/Student";
 
 export default class ListStudentsUserCase {
     constructor(
@@ -8,12 +7,12 @@ export default class ListStudentsUserCase {
     ) { }
 
     async execute(): Promise<Student[]> {
-        const student = await this.studentRepository.list();
+        let students = await this.studentRepository.list();
 
-        if (!student) {
+        if (!students) {
             throw new Error("Estudante não encontrado.");
         }
 
-        return student;
+        return students;
     }
 }

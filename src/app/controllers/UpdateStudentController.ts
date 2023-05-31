@@ -6,25 +6,24 @@ export default class UpdateStudentController {
         private updateStudentUseCase: UpdateStudentUseCase,
     ) { }
 
-    async handle(req: Request, res: Response): Promise<Response> {
-        const { registration, name, dateOfBirth, status, email } = req.body;
+    async handle(req: Request, res: Response): Promise<void> {
+        const { name, dateOfBirth, status, email } = req.body;
+        const { registration } = req.params;
 
         try {
             await this.updateStudentUseCase.execute({
-                registration,
+                registration: Number(registration),
                 name,
                 dateOfBirth: new Date(dateOfBirth),
                 email,
                 status,
             });
 
-            return res.status(200).send({
-                message: `Atualização do estudante ${registration} com sucesso.`,
-            });
+            return res.status(200).redirect('/')
         } catch (err) {
-            return res.status(400).json({
-                message: err.message || `Ocorreu um erro na atualização do estudante ${registration}.`,
-            });
+            const errorMessage = err.message || `Ocorreu um erro na atualização do estudante ${name}.`
+
+            return res.status(400).redirect(`error/${errorMessage}`)
         }
     }
 }

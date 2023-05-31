@@ -6,19 +6,17 @@ export default class DeleteStudentController {
         private deleteStudentUserCase: DeleteStudentUserCase
     ) { }
 
-    async handle(req: Request, res: Response): Promise<Response> {
+    async handle(req: Request, res: Response): Promise<void> {
         const { registration } = req.params;
 
         try {
             this.deleteStudentUserCase.execute(Number(registration));
 
-            return res.status(200).send({
-                message: `Remoção do estudante ${registration} com sucesso.`,
-            });
+            return res.status(200).redirect('/deleteView')
         } catch (err) {
-            return res.status(404).json({
-                message: err.message || `Ocorreu um erro na remoção do estudante ${registration}.`,
-            });
+            const errorMessage = err.message || `Ocorreu um erro na remoção do estudante ${registration}.`
+
+            return res.status(400).redirect(`error/${errorMessage}`)
         }
     }
 }

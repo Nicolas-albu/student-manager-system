@@ -7,9 +7,7 @@ export default class CreateStudentController {
         private createStudentUseCase: CreateStudentUserCase,
     ) { }
 
-    async handle(req: Request, res: Response): Promise<Response> {
-        console.log(req.body)
-
+    async handle(req: Request, res: Response): Promise<void> {
         const { registration, name, dateOfBirth, status, email }: Student = req.body;
 
         try {
@@ -21,11 +19,11 @@ export default class CreateStudentController {
                 status,
             });
 
-            res.status(201).redirect('/')
+            return res.status(201).redirect('/')
         } catch (err) {
-            return res.status(400).json({
-                message: err.message || "Ocorreu um erro na criação do estudante.",
-            });
+            const errorMessage = err.message || `Ocorreu um erro na criação do estudante ${name}.`
+
+            return res.status(400).redirect(`/error/${errorMessage}`)
         }
     }
 }
